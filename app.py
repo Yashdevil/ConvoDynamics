@@ -103,7 +103,7 @@ def start_recording_audio():
     print("Finished recording audio.")
     # now = datetime.datetime.now()
     print(f"in audio , {timestarted}")
-    wf = wave.open('C:/dti project/flastlearning/static/audios/audio' + timestarted + '.wav', 'wb')
+    wf = wave.open('static/audios/audio' + timestarted + '.wav', 'wb')
     wf.setnchannels(2)
     wf.setsampwidth(audio.get_sample_size(pyaudio.paInt16))
     wf.setframerate(44100)
@@ -111,7 +111,7 @@ def start_recording_audio():
     wf.close()
     
 
-UPLOAD_FOLDER = "C:/dti project/flastlearning/static/videos"
+UPLOAD_FOLDER = "static/videos"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/upload', methods=['POST'])
@@ -276,7 +276,7 @@ def video_feed2():
     return Response(gen_frames2(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 import time
-video_save_dir = r'C:\dti project\flastlearning\static\videos'
+video_save_dir = r'static\videos'
 
 @app.route('/recordingrequest', methods=['POST', 'GET'])
 def recc():
